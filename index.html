@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orpuya Digital Campaign Infrastructure & Field Execution Guide</title>
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --panel: #ffffff;
+        --text: #17212b;
+        --muted: #526071;
+        --primary: #0b5ed7;
+        --primary-dark: #0a4db2;
+        --accent: #1c9c6a;
+        --gold: #d7a31a;
+        --border: #dfe7f1;
+        --shadow: 0 12px 32px rgba(17, 24, 39, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #edf3fb 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 18px 60px;
+      }
+
+      .topbar {
+        background: #0b1731;
+        color: white;
+        padding: 18px 0;
+        box-shadow: 0 8px 20px rgba(11, 23, 49, 0.14);
+      }
+
+      .topbar .container {
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .badge {
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.18);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+      }
+
+      h1, h2, h3 {
+        margin-top: 0;
+        line-height: 1.25;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 3vw, 3rem);
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 2vw, 2.2rem);
+        margin-top: 40px;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 12px;
+      }
+
+      .lead {
+        font-size: 1.04rem;
+        color: var(--muted);
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 28px;
+      }
+
+      .chip {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 0.95rem;
+        color: var(--muted);
+        box-shadow: var(--shadow);
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        padding: 24px 24px 18px;
+      }
+
+      .section {
+        margin-top: 30px;
+      }
+
+      ol, ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      code, pre {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      }
+
+      pre {
+        background: #0b1731;
+        color: #dfeeff;
+        padding: 16px 18px;
+        border-radius: 12px;
+        overflow-x: auto;
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .quote {
+        background: #edf7f2;
+        border-left: 5px solid var(--accent);
+        border-radius: 12px;
+        padding: 16px 18px;
+        color: #1b3d2d;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      th, td {
+        text-align: left;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+
+      th {
+        background: #f2f6fb;
+      }
+
+      .callout {
+        margin-top: 18px;
+        background: linear-gradient(135deg, #eff7ff 0%, #f8fbff 100%);
+        border: 1px solid #d4e7ff;
+        border-radius: 14px;
+        padding: 18px 20px;
+      }
+
+      .footer {
+        margin-top: 42px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      @media (max-width: 640px) {
+        .topbar .container {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+
+        .panel {
+          padding: 18px 16px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container">
+        <div class="brand">ORPUYA | Narok North Campaign Hub</div>
+        <div class="badge">DCP • Hon. Martin Ole Kamwaro</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1>Orpuya Digital Campaign Infrastructure &amp; Field Execution Guide</h1>
+
+      <div class="lead">
+        <strong>Candidate:</strong> Hon. Martin Ole Kamwaro ("Orpuya")<br />
+        <strong>Party:</strong> Democratic Congress Party (DCP)<br />
+        <strong>Target Region:</strong> Narok North Constituency (Focus: Narok Town Ward)
+      </div>
+
+      <div class="meta">
+        <span class="chip">Hosting &amp; Custom Domain</span>
+        <span class="chip">USSD &amp; SMS Fallback</span>
+        <span class="chip">Field Agent Deployment</span>
+        <span class="chip">Offline-Ready Campaign Tools</span>
+      </div>
+
+      <section class="panel section">
+        <h2>1. Hosting &amp; Custom Domain Deployment Guide</h2>
+        <p>
+          To make <code>orpuya_master_campaign_hub.html</code> accessible online 24/7 with zero hosting costs,
+          follow these step-by-step instructions.
+        </p>
+
+        <h3>Option A: Hosting via GitHub Pages &amp; Linking a <code>.co.ke</code> Domain (Recommended)</h3>
+
+        <ol>
+          <li><strong>Prepare the App File:</strong> Take the single-file HTML app code and save it on your computer as <strong><code>index.html</code></strong> (in lowercase).</li>
+          <li><strong>Set Up GitHub Repository:</strong> Log into <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a> and click <strong>New repository</strong>. Name the repository <strong><code>orpuya-hub</code></strong> (or <code>narok-north-hub</code>). Select <strong>Public</strong> visibility and click <strong>Create repository</strong>.</li>
+          <li><strong>Upload <code>index.html</code>:</strong> On the repository page, click <strong>Add file &gt; Upload files</strong>. Drag and drop your <strong><code>index.html</code></strong> file. Click <strong>Commit changes</strong>.</li>
+          <li><strong>Enable GitHub Pages:</strong> Navigate to <strong>Settings &gt; Pages</strong>. Under <strong>Build and deployment &gt; Branch</strong>, select <code>main</code> (or <code>master</code>) and keep <code>/ (root)</code> selected. Click <strong>Save</strong>. Within 1–2 minutes, your live site will be accessible at:
+            <pre>https://&lt;your-github-username&gt;.github.io/orpuya-hub/</pre>
+          </li>
+          <li><strong>Link a Custom Domain (<code>orpuya.co.ke</code>):</strong>
+            <ul>
+              <li>Purchase <code>orpuya.co.ke</code> from an accredited KeNIC registrar (e.g., HostPinnacle, SasaHost, or Kenya Web Experts).</li>
+              <li>In your registrar's DNS Management panel, set up the following records:</li>
+            </ul>
+            <div class="callout">
+              <strong>A Records</strong> pointing to GitHub Pages IPs:<br />
+              <code>185.199.108.153</code><br />
+              <code>185.199.109.153</code><br />
+              <code>185.199.110.153</code><br />
+              <code>185.199.111.153</code><br /><br />
+              <strong>CNAME Record:</strong> <code>www</code> pointing to <code>&lt;your-github-username&gt;.github.io</code>
+            </div>
+            <p>In your GitHub repository <strong>Settings &gt; Pages</strong>, type <code>orpuya.co.ke</code> into the <strong>Custom domain</strong> box, click <strong>Save</strong>, and check <strong>Enforce HTTPS</strong>.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel section">
+        <h2>2. USSD &amp; SMS Fallback Script (<code>*384*254#</code>)</h2>
+        <p>For non-smartphone users and feature-phone holders across Narok North, the Africa's Talking USSD engine provides offline access to all three campaign pillars.</p>
+
+        <h3>USSD Navigation Tree Structure</h3>
+        <pre>Dial *384*254#
+│
+├── 1. Digital NG-CDF Bursary
+│   ├── 1. Apply for Bursary
+│   │   ├── Enter ID / Birth Cert No.
+│   │   ├── Select School/Institution (1. MMU, 2. KMTC, 3. Sec Boarding, 4. Other)
+│   │   └── Enter Fee Balance (KES)
+│   │       └── [System Result: "Application logged! Ref: ORP-2026-XXXX. Details sent via SMS."]
+│   └── 2. Track Application Status
+│       └── Enter Reference Code
+│           └── [System Result: "Status: ORP-2026-8842 - E-Cheque Disbursed to MMU Account."]
+│
+├── 2. Boda Boda Bima Shield
+│   ├── 1. Register Stage & Bike
+│   │   ├── Enter Bike Reg (e.g., KMFE 482J)
+│   │   └── Select Stage Name
+│   └── 2. Trigger SOS Legal Help
+│       ├── Select Incident (1. Kanjo Arrest, 2. Impoundment, 3. Accident)
+│       └── [System Result: "SOS Alert Dispatched! Advocate Ole Sopia notified. Stand by."]
+│
+└── 3. Mama Mboga Chama SACCO
+    ├── 1. Register Market Group
+    └── 2. Request Matching Stock Grant</pre>
+
+        <h3>Automated SMS Gateway Response (Twilio / Africa's Talking)</h3>
+        <p>Whenever a user completes a web form or USSD submission, the gateway triggers an immediate Swahili/English confirmation text:</p>
+
+        <div class="quote">
+          <strong>NG-CDF Bursary Alert:</strong><br />
+          <em>"Habari [Name], ombi lako la bursary la KES [Balance] limepokelewa. Ref: [ORP-2026-XXXX]. Hon. Martin Ole Kamwaro (Orpuya - DCP) anasimama na elimu yako. Fuatilia: orpuya.co.ke"</em>
+        </div>
+
+        <div class="quote" style="margin-top: 18px;">
+          <strong>Boda SOS Legal Alert:</strong><br />
+          <em>"SOS IMEPOKELEWA! Timu ya sheria ya Hon. Martin Ole Kamwaro imetumwa [Stage Location]. Waziite kwa hotline: 0800 720 911. Usilipe faini isiyo halali."</em>
+        </div>
+      </section>
+
+      <section class="panel section">
+        <h2>3. Field Agent Tablet Training &amp; Deployment Manual</h2>
+
+        <h3>A. Morning Setup &amp; Device Configuration</h3>
+        <ol>
+          <li><strong>Cache Application for Offline Mode:</strong> Open Chrome on the field tablet, load <code>orpuya.co.ke</code>, tap <strong>Options</strong> (3 dots) &gt; <strong>Add to Home screen</strong>. This creates an offline-ready PWA icon.</li>
+          <li><strong>Sync Verification:</strong> Ensure mobile data or Wi-Fi is toggled ON at 7:30 AM to push queued offline submissions from the previous day into the central campaign analytics server.</li>
+        </ol>
+
+        <h3>B. Field Engagement Workflow Matrix</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Target Audience</th>
+              <th>Primary Focus</th>
+              <th>Standard Interaction Goal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Maasai Mara Univ. / KMTC</strong></td>
+              <td>Gen Z Students</td>
+              <td>NG-CDF Bursary Portal</td>
+              <td>Log 30+ applications/hr; distribute A5 QR handbills</td>
+            </tr>
+            <tr>
+              <td><strong>Boda Stages (Masikonde, Total)</strong></td>
+              <td>Riders &amp; Operators</td>
+              <td>Bima Shield &amp; SOS Hotline</td>
+              <td>Apply waterproof stickers; demo SOS feature; register riders</td>
+            </tr>
+            <tr>
+              <td><strong>Narok Main Market</strong></td>
+              <td>Market Traders</td>
+              <td>Mama Mboga Chama SACCO</td>
+              <td>Register market groups; calculate stock grant matching</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>C. Protocol for Handling Data-Hesitant Voters</h3>
+        <ul>
+          <li><strong>Security Reassurance:</strong> Emphasize that national ID numbers are encrypted and strictly used for bursary verification and group insurance enrollment.</li>
+          <li><strong>Paper Backup Workflow:</strong> If a voter prefers not to input details directly into the tablet, fill out a physical paper registration slip, tear off the tracking receipt for the voter, and manually enter the data at headquarters at the end of the shift.</li>
+        </ul>
+      </section>
+
+      <div class="footer">
+        Orpuya Campaign Infrastructure Guide • Democratic Congress Party • Narok North Constituency
+      </div>
+    </main>
+  </body>
+</html>
